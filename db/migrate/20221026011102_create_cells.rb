@@ -1,9 +1,9 @@
 class CreateCells < ActiveRecord::Migration[7.0]
   def change
     create_table :cells do |t|
-      t.x :integer
-      t.y :integer
-      t.color :string
+      t.integer :x
+      t.integer :y
+      t.string :color
 
       t.timestamps
     end
