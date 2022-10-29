@@ -12,5 +12,4 @@ Rails.application.routes.draw do
  #  end
  #end
 
- post '/application:create_cells', to: 'application#create_cells', as: 'create_cells'
 end
