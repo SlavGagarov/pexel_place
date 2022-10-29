@@ -1,8 +1,16 @@
 Rails.application.routes.draw do
-  resources :sharks
-  root 'sharks#index' 
+  resources :application
+  root 'application#index' 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
   # root "articles#index"
+
+ #resources :cells do
+ #  collection do
+ #    get :create_cell_row
+ #  end
+ #end
+
+ post '/application:create_cells', to: 'application#create_cells', as: 'create_cells'
 end
