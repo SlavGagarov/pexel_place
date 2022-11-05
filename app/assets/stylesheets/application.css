@@ -27,11 +27,44 @@ body {
   display: grid;
   grid-template-columns: repeat(var(--cells_per_row), var(--cells_size));
   width: calc(var(--cells_per_row)*var(--cells_size));
-  height: calc(var(--cells_per_row)*var(--cells_size));
+  height: calc(var(--cells_per_row)*var(--cells_size)+1);
   margin: auto;
 }
+
 .cell {
   border: 1px solid rgba(0, 0, 0, 0.8);
   height: var(--cells_size);
   width: var(--cells_size);
+}
+
+.cell_button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  height: var(--cells_size);
+  width: var(--cells_size);
+}
+
+#color_menu {
+  background-color: skyblue;
+  margin-top: 25px;
+  display: none;
+}
+
+.color_option {
+  data-inline="true";
+  height: var(--cells_size);
+  width: var(--cells_size);
+}
+
+#green_color_option {
+  background-color: limegreen;
+}
+
+#blue_color_option {
+  background-color: darkblue;
+}
+
+#red_color_option {
+  background-color: darkred;
 }
