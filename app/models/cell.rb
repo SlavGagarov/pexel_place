@@ -8,7 +8,7 @@ class Cell < ApplicationRecord
 		self.color  ||= "#FFFFF"
 	end
 
-	def get_color
-		return "color: #{color}"
+	def set_color_to_property(property)
+		return "#{property}: #{color}"
 	end
 end

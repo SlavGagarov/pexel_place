@@ -1,20 +1,14 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>The Sharks Are Dead</h1>
-
 <div id="home">
-  <img src="https://media.tenor.com/hjjG_i4XmcEAAAAM/lizard-dance.gif">
-  
-<div id="sharks">
-  <% @sharks.each do |shark| %>
-    <br>
-    <%= render shark %>
-  <% end %>
+  <img src="https://i.gifer.com/3MH3.gif" style="height: 150px">
+  <br>
+  <img src="https://media.tenor.com/hjjG_i4XmcEAAAAM/lizard-dance.gif" style="height: 250px">
 
-  <% @cells.each do |cell| %>
-    <br>
-    <%= render cell %>
-  <% end %>
-</div>
-
+  <br>
+  <div class="board" id="cells">
+    <% @cells.each do |cell| %>
+      <%= render cell %>
+    <% end %>
+  </div>
 </div>
