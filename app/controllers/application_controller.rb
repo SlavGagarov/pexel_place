@@ -1,26 +1,21 @@
 class ApplicationController < ActionController::Base
   skip_before_action :verify_authenticity_token
-  
+  $current_x = -1
+  $current_y = -1
+
   def index
     @sharks = Shark.all
     @cells = Cell.all.order(:y, :x)
   end
 
-  def show
-    logger.fatal "TERMINATING APP"
-    logger.fatal params
-    logger.fatal "TERMINATING APP"
-    c = Cell.first
+  def update_color
+    c = Cell.where(x: $current_x, y:$current_y).first
     c.color = params[:my_id]
-    #c.color = "#000000"
     c.save!
-    redirect_to :root
   end
 
-  def update_color
-    logger.info "UPDATE COLOR"
-    c = Cell.first
-    c.color = params[:my_id]
-    c.save!
+  def set_selected_cell
+    $current_x = params[:selected_x]
+    $current_y = params[:selected_y]
   end
 end

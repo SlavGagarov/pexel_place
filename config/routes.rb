@@ -11,7 +11,8 @@ Rails.application.routes.draw do
 
   resources :application do
     collection do
-      get :update_color
+      post :update_color
+      post :set_selected_cell
     end
   end
 

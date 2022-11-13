@@ -12,14 +12,25 @@
   </div>
 
   <div id="color_menu">
-    <div class="color_option" id="green_color_option">
-      <%= link_to "aa", update_color_application_index_path(:my_id => "#5a158f" )%>
+    <div class="color_option">
+      <%= button_to "", update_color_application_index_path(:my_id => "#0ac910" ), 
+      {class: 'color_option', id: 'green_color_option'}%>
     </div>
-
-    <div class="color_option" id="blue_color_option">
+    <div class="color_option">
+      <%= button_to "", update_color_application_index_path(:my_id => "#0a9bf5" ), 
+      {class: 'color_option', id: 'blue_color_option'}%>
     </div>
-
-    <div class="color_option" id="red_color_option">
+    <div class="color_option">
+      <%= button_to "", update_color_application_index_path(:my_id => "#f50000" ), 
+      {class: 'color_option', id: 'red_color_option'}%>
+    </div>
+    <div class="color_option">
+      <%= button_to "", update_color_application_index_path(:my_id => "#000000" ), 
+      {class: 'color_option', id: 'white_color_option'}%>
+    </div>
+    <div class="color_option">
+      <%= button_to "", update_color_application_index_path(:my_id => "#ffffff" ), 
+      {class: 'color_option', id: 'black_color_option'}%>
     </div>
   </div>
 </div>
@@ -46,10 +57,12 @@
     }
   }
 
-  function updateColor(){
+  async function updateColor(){
     if(event) {
       let style = getComputedStyle(event.target)
       console.log(RGBToHex(style.backgroundColor))
+      await new Promise(resolve => setTimeout(resolve, 100))
+      window.location.reload()
     }
   }
 
@@ -75,6 +88,7 @@
 </script>
 
 <script type="text/javascript">
+  var x_loc = 1
   addCellOnClicks()
   addMenuOnClicks()
 </script>

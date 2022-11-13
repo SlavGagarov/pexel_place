@@ -1,5 +1,6 @@
 <div class="cell" 
 style= "<%= cell.set_color_to_property("background-color") %>" 
 id="<%= dom_id cell %>">
-  <button class="cell_button" type="button"></button>
+<%= button_to "", set_selected_cell_application_index_path(:selected_x => cell.x, :selected_y => cell.y ), 
+      {class: 'cell_button'}%>
 </div>

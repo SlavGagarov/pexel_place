@@ -60,13 +60,21 @@ body {
 }
 
 #green_color_option {
-  background-color: limegreen;
+  background-color: #0ac910;
 }
 
 #blue_color_option {
-  background-color: darkblue;
+  background-color: #0a9bf5;
 }
 
 #red_color_option {
-  background-color: darkred;
+  background-color: #f50000;
+}
+
+#white_color_option {
+  background-color: #000000;
+}
+
+#black_color_option{
+  background-color: #ffffff;
 }
