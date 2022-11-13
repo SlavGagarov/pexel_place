@@ -1,5 +1,4 @@
 <p style="color: green"><%= notice %></p>
-
 <div id="home">
   <img src="https://i.gifer.com/3MH3.gif" style="height: 150px">
   <br>
@@ -13,14 +12,69 @@
   </div>
 
   <div id="color_menu">
-    <button class="color_option" id="green_color_option">
-    </button>
+    <div class="color_option" id="green_color_option">
+      <%= link_to "aa", update_color_application_index_path(:my_id => "#5a158f" )%>
+    </div>
 
-    <button class="color_option" id="blue_color_option">
-    </button>
+    <div class="color_option" id="blue_color_option">
+    </div>
 
-    <button class="color_option" id="red_color_option">
-    </button>
+    <div class="color_option" id="red_color_option">
+    </div>
   </div>
 </div>
 
+
+
+<script type="text/javascript">
+  function addCellOnClicks() {
+    let cells = document.getElementsByClassName("cell_button")
+    
+    for (var i = 0; i < cells.length; i++) {
+      cells[i].addEventListener("click", showColorMenu)
+    }
+  }
+
+  function showColorMenu() {
+    document.getElementById("color_menu").style.display = "block"
+  }
+
+  function addMenuOnClicks(){
+    let menu_buttons = document.getElementsByClassName("color_option")
+    for (var i = 0; i < menu_buttons.length; i++) {
+      menu_buttons[i].addEventListener("click", updateColor)
+    }
+  }
+
+  function updateColor(){
+    if(event) {
+      let style = getComputedStyle(event.target)
+      console.log(RGBToHex(style.backgroundColor))
+    }
+  }
+
+  function RGBToHex(rgb) {
+    let hex = "#"
+    let separator = rgb.indexOf(",") > -1 ? "," : " "
+    rgb = rgb.substr(4).split(")")[0].split(separator)
+    let r = (+rgb[0]).toString(16)
+    let g = (+rgb[1]).toString(16)
+    let b = (+rgb[2]).toString(16)
+
+    if (r.length == 1)
+      r = "0" + r
+    hex += r
+    if (g.length == 1)
+      g = "0" + g
+    hex +=g
+    if (b.length == 1)
+      b = "0" + b
+    hex +=b
+    return hex.toUpperCase();
+  }
+</script>
+
+<script type="text/javascript">
+  addCellOnClicks()
+  addMenuOnClicks()
+</script>

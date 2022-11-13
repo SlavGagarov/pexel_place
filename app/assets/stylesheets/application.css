@@ -16,6 +16,7 @@
 :root {
   --cells_per_row: 5;
   --cells_size: 50px;
+  --color_option_size: 50px;
 }
 
 body {
@@ -32,7 +33,7 @@ body {
 }
 
 .cell {
-  border: 1px solid rgba(0, 0, 0, 0.8);
+  border: 1px solid;
   height: var(--cells_size);
   width: var(--cells_size);
 }
@@ -47,14 +48,15 @@ body {
 
 #color_menu {
   background-color: skyblue;
-  margin-top: 25px;
+  margin-top: calc(var(--cells_size)/2.0);
   display: none;
 }
 
 .color_option {
-  data-inline="true";
-  height: var(--cells_size);
-  width: var(--cells_size);
+  display: inline-block;
+  border: 1px solid;
+  height: var(--color_option_size);
+  width: var(--color_option_size);
 }
 
 #green_color_option {
