@@ -1,10 +1,12 @@
 <p style="color: green"><%= notice %></p>
 <div id="home">
-  <img src="https://i.gifer.com/3MH3.gif" style="height: 150px">
-  <br>
-  <img src="https://media.tenor.com/hjjG_i4XmcEAAAAM/lizard-dance.gif" style="height: 250px">
+  <div class="dance">
+    <img src="https://i.gifer.com/3MH3.gif" style="height: 150px">
+    <br>
+    <img src="https://media.tenor.com/hjjG_i4XmcEAAAAM/lizard-dance.gif" style="height: 250px">
+  </div>
 
-  <br>
+  <%= button_to "", remake_all_cells_application_index_path%>
   <div class="board" id="cells">
     <% @cells.each do |cell| %>
       <%= render cell %>
@@ -60,30 +62,9 @@
   async function updateColor(){
     if(event) {
       let style = getComputedStyle(event.target)
-      console.log(RGBToHex(style.backgroundColor))
       await new Promise(resolve => setTimeout(resolve, 100))
       window.location.reload()
     }
-  }
-
-  function RGBToHex(rgb) {
-    let hex = "#"
-    let separator = rgb.indexOf(",") > -1 ? "," : " "
-    rgb = rgb.substr(4).split(")")[0].split(separator)
-    let r = (+rgb[0]).toString(16)
-    let g = (+rgb[1]).toString(16)
-    let b = (+rgb[2]).toString(16)
-
-    if (r.length == 1)
-      r = "0" + r
-    hex += r
-    if (g.length == 1)
-      g = "0" + g
-    hex +=g
-    if (b.length == 1)
-      b = "0" + b
-    hex +=b
-    return hex.toUpperCase();
   }
 </script>
 

@@ -14,14 +14,18 @@
  *= require_self
  */
 :root {
-  --cells_per_row: 5;
-  --cells_size: 50px;
+  --cells_per_row: 20;
+  --cells_size: 40px;
   --color_option_size: 50px;
 }
 
 body {
   background-color: powderblue;
   text-align: center;
+}
+
+.dance {
+  position: absolute;
 }
 
 .board {
