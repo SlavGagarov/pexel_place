@@ -18,17 +18,4 @@ class ApplicationController < ActionController::Base
     $current_x = params[:selected_x]
     $current_y = params[:selected_y]
   end
-
-  def remake_all_cells
-    Cell.all.destroy_all
-    for i in 1..20 do
-     for j in 1..20 do
-      c = Cell.new
-      c.x = i
-      c.y = j
-      c.color = '#FFFFFF'
-      c.save!
-     end 
-    end
-  end
 end

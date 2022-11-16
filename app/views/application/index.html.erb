@@ -6,7 +6,6 @@
     <img src="https://media.tenor.com/hjjG_i4XmcEAAAAM/lizard-dance.gif" style="height: 250px">
   </div>
 
-  <%= button_to "", remake_all_cells_application_index_path%>
   <div class="board" id="cells">
     <% @cells.each do |cell| %>
       <%= render cell %>
