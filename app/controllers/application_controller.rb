@@ -1,11 +1,18 @@
 class ApplicationController < ActionController::Base
-  skip_before_action :verify_authenticity_token
   $current_x = -1
   $current_y = -1
 
+  def intialize
+    logger.info "INITIALIZE"
+    logger.info "INITIALIZE"
+     @cells = Cell.all.order(:y, :x)
+  end
+
   def index
-    @sharks = Shark.all
-    @cells = Cell.all.order(:y, :x)
+    if @cells.nil?
+      logger.info "GETTING ALL CELLS"
+      @cells = Cell.all.order(:y, :x)
+    end
   end
 
   def update_color

@@ -17,6 +17,7 @@
       <%= button_to "", update_color_application_index_path(:my_id => "#0ac910" ), 
       {class: 'color_option', id: 'green_color_option'}%>
     </div>
+
     <div class="color_option">
       <%= button_to "", update_color_application_index_path(:my_id => "#0a9bf5" ), 
       {class: 'color_option', id: 'blue_color_option'}%>
@@ -39,6 +40,7 @@
 
 
 <script type="text/javascript">
+  let currentTarget = null
   function addCellOnClicks() {
     let cells = document.getElementsByClassName("cell_button")
     
@@ -49,6 +51,7 @@
 
   function showColorMenu() {
     document.getElementById("color_menu").style.display = "block"
+    currentTarget = event.target
   }
 
   function addMenuOnClicks(){
@@ -60,9 +63,9 @@
 
   async function updateColor(){
     if(event) {
-      let style = getComputedStyle(event.target)
+      let selectedColor = getComputedStyle(event.target).backgroundColor
       await new Promise(resolve => setTimeout(resolve, 100))
-      window.location.reload()
+      currentTarget.style.backgroundColor = selectedColor
     }
   }
 </script>
