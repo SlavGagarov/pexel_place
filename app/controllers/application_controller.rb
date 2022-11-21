@@ -26,17 +26,24 @@ class ApplicationController < ActionController::Base
     $current_y = params[:selected_y]
   end
 
-  def make_cells
+  def delete_cells
+    Cell.where("x > ?", 20).destroy_all
+    Cell.where("y > ?", 20).destroy_all
+  end
 
-    for i in 1..30
-      for j in 26..30
-        c = Cell.where(x: i, y:j)
-        c.destroy_all
+  def make_cells
+    for i in 21..40
+      for j in 1..25
+        c = Cell.new
+        c.x = i
+        c.y = j
+        c.color = "#FFFFFF"
+        c.save!
       end
     end
 
-    for i in 31..40
-      for j in 1..25
+    for i in 1..20
+      for j in 21..25
         c = Cell.new
         c.x = i
         c.y = j
