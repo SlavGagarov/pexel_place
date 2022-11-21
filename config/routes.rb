@@ -13,8 +13,6 @@ Rails.application.routes.draw do
     collection do
       post :update_color
       post :set_selected_cell
-      post :make_cells
-      post :delete_cells
     end
   end
 
