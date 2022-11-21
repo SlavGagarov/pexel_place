@@ -25,4 +25,26 @@ class ApplicationController < ActionController::Base
     $current_x = params[:selected_x]
     $current_y = params[:selected_y]
   end
+
+  def make_cells
+    for i in 21..30
+      for j in 1..20
+        c = Cell.new
+        c.x = i
+        c.y = j
+        c.color = "#FFFFFF"
+        c.save!
+      end
+    end
+
+    for i in 1..40
+      for j in 21..30
+        c = Cell.new
+        c.x = i
+        c.y = j
+        c.color = "#FFFFFF"
+        c.save!
+      end
+    end
+  end
 end
