@@ -27,8 +27,16 @@ class ApplicationController < ActionController::Base
   end
 
   def make_cells
-    for i in 21..30
-      for j in 1..20
+
+    for i in 1..30
+      for j in 26..30
+        c = Cell.where(x: i, y:j)
+        c.destroy_all
+      end
+    end
+
+    for i in 31..40
+      for j in 1..25
         c = Cell.new
         c.x = i
         c.y = j
@@ -37,14 +45,5 @@ class ApplicationController < ActionController::Base
       end
     end
 
-    for i in 1..40
-      for j in 21..30
-        c = Cell.new
-        c.x = i
-        c.y = j
-        c.color = "#FFFFFF"
-        c.save!
-      end
-    end
   end
 end
